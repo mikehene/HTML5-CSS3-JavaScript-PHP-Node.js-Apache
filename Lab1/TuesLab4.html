@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="TuesLab4.css">
+	<script src="http://canvasjs.com/assets/script/canvasjs.min.js"></script>
+	<script type="text/javascript">
+
+	window.onload = function () {
+	  var chart = new CanvasJS.Chart("chartContainer", {
+	    theme: "theme1", 
+	    title:{
+	      text: "No of words found"              
+	    },
+	    animationEnabled: false,   // change to true
+	    data: [              
+	    {
+	      // Change type to "bar", "area", "spline", "pie",etc.
+	      type: "column",
+	      dataPoints: [
+	        { label: "Words Found",  y: 3  }
+	      ]
+	    }
+	    ]
+	  });
+	  chart.render();
+	}
+	</script>
+</head>
+
+<body>
+	<div id="width">
+	
+		<center>
+			<textarea rows="4" cols="50" id="input">It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife.</textarea>
+			
+			<div id="output">
+			
+			</div>
+		</center>
+	
+		
+	<br />
+	
+	
+	<div id="buttons">
+		<center>
+		
+			<button type="submit" id="encode" onclick="textEncode()">Encode</button>
+			<button type="submit" id="clear" onclick="document.getElementById('output').innerHTML = ''">Clear</button>
+		
+		</center>
+	</div>
+	<center>
+		<div id="chartContainer" style="height: 100px; width: 25%;"></div>
+	</center>
+
+	
+
+</div>
+	
+	<script>
+	var count = 0;
+	
+	function  textEncode(){
+		var para = document.getElementById('input').value;
+		var array = para.split(" ");
+		var list = ["do", "be", "am", "is", "are", "was", "has", "had", "been", "being", "have", 
+			"having", "were", "could", "should", "would", "may", "might", "must", "will", 
+			"shall", "can", "did", "does"];
+		
+
+		for(var i =0; i < array.length; i++){
+			for(var j = 0; j < list.length; j++){
+				if(array[i] === list[j]){
+					array[i] = array[i].replace(array[i], '<span>' + array[i] + '</span>');
+					count++;
+				}
+			}
+		}
+		
+		var changed = "";
+		for(var i = 0; i < array.length; i++){
+			changed += array[i] + " ";
+		}
+		document.getElementById('output').innerHTML = changed;
+
+	
+	}
+	
+		function clear(){
+			document.getElementById('output').innerHTML = '';
+		
+		}
+	
+	</script>
+
+</body>
+</html>

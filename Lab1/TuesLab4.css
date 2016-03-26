@@ -1,0 +1,43 @@
+#width {
+	width: 80%;
+	height: 100%;
+	margin-left: true;
+	margin-right: true;
+
+}
+span{
+	color:red;
+	background-color:white;
+}
+
+#chartContainer {
+
+	border: black 1px solid;
+}
+
+#buttons {
+	padding: 5px;
+	
+}
+#input {
+	text-align: center;
+	color:black;
+	background-color:white;
+	font-size: 12px;
+	font-family: sans serif;
+	border: black 1px solid;
+	padding: 5px;
+
+}
+
+#output {
+	
+	color:white;
+	background-color:blue;
+	border: black 1px solid;
+	padding: 5px;
+	font-size: 12px;
+	height: 100px;
+	width: 300px;
+
+}
